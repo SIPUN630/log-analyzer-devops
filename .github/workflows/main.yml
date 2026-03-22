@@ -1,6 +1,7 @@
 name: Log Analyzer CI
 
-on: [push]
+on:
+  push:
 
 jobs:
   run-script:
@@ -18,8 +19,11 @@ jobs:
       - name: Run Analyzer
         run: python analyzer.py
 
+      - name: List files
+        run: ls -l
+
       - name: Upload Report
         uses: actions/upload-artifact@v4
         with:
           name: log-report
-          path: report.txt
+          path: ./report.txt
