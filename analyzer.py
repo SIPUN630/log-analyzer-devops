@@ -9,8 +9,11 @@ def analyze_logs(file):
             elif "WARNING" in line:
                 warning_count += 1
 
-    print(f"Errors: {error_count}")
-    print(f"Warnings: {warning_count}")
+    with open("report.txt", "w") as r:
+        r.write(f"Errors: {error_count}\n")
+        r.write(f"Warnings: {warning_count}\n")
+
+    print("Report generated successfully!")
 
 
 if __name__ == "__main__":
