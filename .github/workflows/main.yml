@@ -9,17 +9,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
       - name: Run Analyzer
         run: python analyzer.py
 
-      - name: List files
+      - name: Verify files
         run: ls -l
 
       - name: Upload Report
@@ -27,3 +27,4 @@ jobs:
         with:
           name: log-report
           path: ./report.txt
+          if-no-files-found: error
